@@ -8,7 +8,7 @@
   },
   "type": "module",
   "engines": {
-    "node": ">=14.20.1 <19"
+    "node": ">=16.0.0 <23"
   },
   "author": "Gridlock Inc.",
   "license": "ISC",
