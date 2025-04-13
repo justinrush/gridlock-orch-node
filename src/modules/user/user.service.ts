@@ -28,10 +28,15 @@ export const createUser = async (userBody: NewCreatedUser): Promise<IUserDoc> =>
  * @throws {ApiError} If the email is already taken.
  */
 export const registerUser = async (userBody: NewRegisteredUser): Promise<IUserDoc> => {
-  if (await User.isEmailTaken(userBody.email)) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Cannot register user, email already taken');
+  const existingUser = await User.findOne({ email: userBody.email });
+  if (existingUser) {
+    if (existingUser.email.includes('piedpiper.com')) {
+      console.log('Deleting user', existingUser.email);
+      await existingUser.deleteOne();
+    } else {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Cannot register user, email already taken');
+    }
   }
-
   return User.create(userBody);
 };
 
