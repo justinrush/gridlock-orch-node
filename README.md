@@ -67,3 +67,11 @@ npm install
 npm run compile
 npm run dev
 ```
+
+## Join the Network
+
+This code is yours to use — but it’s even better when you’re part of the official Gridlock network.
+
+By running [guardian nodes](https://github.com/GridlockNetwork/guardian-node), you can earn rewards while helping secure the network.
+
+Join the community: [gridlock.network/join](https://gridlock.network/join)
